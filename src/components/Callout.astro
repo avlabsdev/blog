@@ -1,6 +1,6 @@
 ---
 interface Props {
-  type: "default" | "info" | "warning" | "error";
+  type: "default" | "info" | "warning" | "error" | favorite;
 }
 
 const { type = "default" } = Astro.props;
@@ -13,6 +13,8 @@ if (type === "info") {
   emoji = "⚠️";
 } else if (type === "error") {
   emoji = "🚨";
+} else if (type === "favorite") {
+  emoji = "⭐";
 }
 ---
 
@@ -40,5 +42,9 @@ if (type === "info") {
 
   .callout-error {
     @apply border-red-800 bg-red-100 text-red-950 dark:border-red-200/20 dark:bg-red-950/20 dark:text-red-200;
+  }
+
+  .callout-favorite {
+    @apply border-pink-800 bg-pink-100 text-pink-950 dark:border-pink-200/20 dark:bg-pink-950/20 dark:text-pink-200;
   }
 </style>
